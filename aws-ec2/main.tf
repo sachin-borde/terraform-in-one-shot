@@ -63,6 +63,7 @@ resource "aws_instance" "my_instance" {
   security_groups = [aws_security_group.security_group.name]
   instance_type   = var.aws_ec2_instance_type
   ami             = var.aws_ec2_ami_id
+  user_data       = file("/home/workspace/VSCODE/aws-ec2/install_ngnix.sh")
 
   root_block_device {
     volume_size = var.aws_root_storage_size
